@@ -28,3 +28,4 @@ def get_dra_response(user_input: str) -> str:
     messages = [system_message, human_message]
     response = llm.invoke(messages)
     return response.content
+.
