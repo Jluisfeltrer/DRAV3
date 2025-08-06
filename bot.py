@@ -4,7 +4,7 @@ from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import os
-
+load_dotenv()
 
 
 ## Bot Function
@@ -28,4 +28,4 @@ def get_dra_response(user_input: str) -> str:
     messages = [system_message, human_message]
     response = llm.invoke(messages)
     return response.content
-.
+

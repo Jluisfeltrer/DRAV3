@@ -13,8 +13,12 @@ app = FastAPI(Title =  'DRA API',
 def read_root():
     return {"message": "Welcome to the DRA API. Use /dra_response to get a response from the DRA."}
 
+
+class UserQuery(BaseModel):
+    query: str
+
 @app.post("/dra_response")
-async def dra_response(user_input: BaseModel):
+async def dra_response(user_input: UserQuery):
     query = user_input.query
     if not query:
         return {"error": "No query provided. Please provide a query in the request body."}
