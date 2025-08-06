@@ -1,7 +1,9 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from bot import get_dra_response
-
+#from bot_direct import get_aiva_response
+from dotenv import load_dotenv
+import os
 
 
 app = FastAPI(Title =  'DRA API',
@@ -25,3 +27,12 @@ async def dra_response(user_input: UserQuery):
 
     response_text = get_dra_response(query)
     return {"response": response_text}
+
+#@app.post('/aiva_response')
+#async def aiva_response(user_input: UserQuery):
+   # query = user_input.query
+   # if not query:
+   #     return {"error": "No query provided. Please provide a query in the request body."}
+
+   # response_text = get_dra_response(query)
+   # return {"response": response_text}
